@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laser Cut | Oficial</title>
+
+  <!-- Tipografía estilo premium (similar a marcas automotrices) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset básico para evitar estilos por defecto del navegador */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Scroll suave al navegar entre secciones */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif; /* Tipografía principal */
+      background: #000; /* Fondo negro estilo premium */
+      color: #fff;
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      position: fixed; /* Siempre visible arriba */
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: rgba(0,0,0,0.6); /* Transparencia tipo vidrio */
+      backdrop-filter: blur(8px); /* Efecto blur premium */
+      z-index: 100;
+    }
+
+    header img { 
+      width: 110px; /* Tamaño del logo */
+    }
+
+    nav { 
+      display: flex; 
+      gap: 25px; /* Espacio entre botones */
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 13px;
+      letter-spacing: 1px;
+      opacity: 0.8; /* Efecto tenue */
+      transition: 0.3s;
+    }
+
+    nav a:hover { 
+      opacity: 1; /* Se ilumina al pasar el mouse */
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      height: 100vh; /* Ocupa toda la pantalla */
+      background: url('tu-imagen.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 8%;
+      position: relative;
+    }
+
+    /* Capa oscura encima de la imagen (efecto Cupra) */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+    }
+
+    .hero-content {
+      position: relative; /* Para que quede encima del overlay */
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .hero p { 
+      margin: 15px 0 25px; 
+      color: #ccc; /* Texto secundario */
+    }
+
+    /* Botones principales */
+    .buttons { 
+      display: flex; 
+      gap: 15px; 
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border: 1px solid white;
+      text-decoration: none;
+      color: white;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    /* Botón principal color cobre (estilo Cupra) */
+    .btn.primary {
+      background: #b87333;
+      border: none;
+      color: black;
+      font-weight: 600;
+    }
+
+    .btn:hover { 
+      background: white; 
+      color: black; 
+    }
+
+    /* ================= SERVICIOS ================= */
+    .services {
+      padding: 80px 8%;
+      background: #0a0a0a;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+      gap: 20px;
+    }
+
+    .card {
+      position: relative;
+      height: 300px;
+      overflow: hidden; /* Oculta bordes de zoom */
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Mantiene proporción */
+      transition: 0.5s;
+    }
+
+    /* Zoom al pasar el mouse */
+    .card:hover img { 
+      transform: scale(1.1); 
+    }
+
+    /* Capa oscura sobre imagen */
+    .card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .card h3 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+      font-size: 18px;
+    }
+
+    /* ================= CONTACTO ================= */
+    .contact {
+      padding: 80px 8%;
+      text-align: center;
+      background: #000;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Contenedor tipo link in bio */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .links a {
+      padding: 15px;
+      border: 1px solid white;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .links a:hover {
+      background: white;
+      color: black;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      padding: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 900px) {
+      .services { 
+        grid-template-columns: 1fr; /* Una columna en celular */
+      }
+
+      .hero h1 { 
+        font-size: 2.2rem; 
+      }
+
+      nav { 
+        display: none; /* Oculta menú en móvil */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <!-- Logo que también funciona como botón de inicio -->
+    <a href="#inicio"><img src="logo.png" /></a>
+
+    <!-- Menú de navegación -->
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO (pantalla principal) -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>LASER CUT</h1>
+      <p>Precisión, diseño y corte de alto nivel</p>
+
+      <!-- Botones principales -->
+      <div class="buttons">
+        <a href="#servicios" class="btn primary">SERVICIOS</a>
+        <a href="#contacto" class="btn">CONTACTAR</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="services" id="servicios">
+
+    <!-- Cada tarjeta representa un servicio -->
+    <div class="card">
+      <img src="corte.jpg" /> <!-- Imagen del servicio -->
+      <h3>CORTE LASER</h3>
+    </div>
+
+    <div class="card">
+      <img src="grabado.jpg" />
+      <h3>GRABADO LASER</h3>
+    </div>
+
+    <div class="card">
+      <img src="celosias.jpg" />
+      <h3>CELOSIAS</h3>
+    </div>
+
+  </section>
+
+  <!-- CONTACTO / LINK IN BIO -->
+  <section class="contact" id="contacto">
+    <h2>CONTACTO</h2>
+
+    <!-- Links principales de contacto -->
+    <div class="links">
+      <a href="#">WhatsApp</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Ubicación</a>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    © 2026 Laser Cut - Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
